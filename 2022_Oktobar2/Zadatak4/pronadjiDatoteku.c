@@ -48,7 +48,7 @@ bool findFile(const char* directoryPath, const char* fileName) {
             perror(NULL);
             exit(EXIT_FAILURE);
         }
-        if (S_ISDIR(fileStats->st_mode)) return findFile(newPath, fileName); // Nalazi prvu pojavu i izlazi, ukloni "return" ako zelis da pronadje sve fajlove
+        if (S_ISDIR(fileStats->st_mode)) return findFile(newPath, fileName); // Nalazi prvu pojavu i izlazi, ukloni "return" ako zelis da pronadje sve fajlove, ali nece da vrati informaciju da li je nasao fajl.
         if (S_ISREG(fileStats->st_mode) && strcmp(fileName, directoryEntry->d_name) == 0) {
             printf("Found file [%s]!\n", fileName);
             printf("  Location: %s\n", newPath);
