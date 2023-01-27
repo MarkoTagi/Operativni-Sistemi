@@ -3,6 +3,7 @@
         "unistd.h": "c",
         "stdio.h": "c",
         "dirent.h": "c",
-        "stat.h": "c"
+        "stat.h": "c",
+        "string.h": "c"
     }
 }
