@@ -34,6 +34,7 @@ int main(int argc, char** argv) {
     int maxDepth = stringToInteger(argv[2]);
     if (errno == EINVAL) {
         fprintf(stderr, "Error! Invalid max depth [%s].\n  Reason: Not a number.\n", argv[2]);
+        errno = 0;
         exit(EXIT_FAILURE);
     }
     else if (maxDepth < 0) {

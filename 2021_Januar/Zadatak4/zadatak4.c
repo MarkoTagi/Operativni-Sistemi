@@ -28,6 +28,7 @@ int main(int argc, char** argv) {
     if (errno == EINVAL) {
         fprintf(stderr, "bad usage: %s\n", argv[0]);
         fprintf(stderr, "\tInvalid input [%s]! The minimum file size specified must be of type integer.\n", argv[2]);
+        errno = 0;
         exit(EXIT_FAILURE);
     }
     else if (minSize < 0) {
@@ -39,10 +40,13 @@ int main(int argc, char** argv) {
     if (errno == EINVAL) {
         fprintf(stderr, "bad usage: %s\n", argv[0]);
         fprintf(stderr, "\tInvalid input [%s]! The minimum file path specified must be of type integer.\n", argv[3]);
+        errno = 0;
+        exit(EXIT_FAILURE);
     }
     else if (minLength < 0) {
         fprintf(stderr, "bad usage: %s\n", argv[0]);
         fprintf(stderr, "\tInvalid input [%s]! The minimum file path must be a non negative integer.\n", argv[3]);
+        exit(EXIT_FAILURE);
     }
     DIR* directoryPointer = opendir(directoryPath);
     if (directoryPointer == NULL) {
